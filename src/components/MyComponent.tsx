@@ -1,14 +1,15 @@
-import './components/MyComponent.css'
-import type {FC} from "react"
+import type {FC, ReactNode} from "react"
 
 type MyComponentPropType = {
-    text: string
+    title: string,
+    children?: ReactNode
 }
 
-export const MyComponent: FC<MyComponentPropType> = ({text}) => {
+export const MyComponent: FC<MyComponentPropType> = ({title, children}) => {
     return (
         <div>
-            {text}
+            <h2>{title}</h2>
+            <p>{children}</p>
         </div>
     )
 }

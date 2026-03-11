@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 import {MyComponent} from "./components/MyComponent.tsx";
 
 function App() {
@@ -7,9 +7,13 @@ function App() {
   return (
     <>
 
-      <MyComponent text={'Hello'}/>
-      <MyComponent text={'Goodbye'}/>
-
+      <MyComponent title={'title 1'}>
+          lorem ipsum
+      </MyComponent>
+        <MyComponent title={'title 2'}>
+            Hello World
+        </MyComponent>
+        <MyComponent title={'title 1'}/>
 
     </>
   )
