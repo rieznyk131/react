@@ -1,4 +1,3 @@
-import './components/MyComponent.css'
 import type {FC} from "react"
 
 type MyComponentPropType = {
