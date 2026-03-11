@@ -1,4 +1,5 @@
-import './components/MyComponent.css'
+// import './MyComponent.css' - basic scc
+import styles from './MyComponent.module.css' //module css
 import type {FC} from "react"
 
 type MyComponentPropType = {
@@ -7,7 +8,8 @@ type MyComponentPropType = {
 
 export const MyComponent: FC<MyComponentPropType> = ({text}) => {
     return (
-        <div>
+        // <div className={'wrapper'}> - basic css
+        <div className={styles.wrapper}>
             {text}
         </div>
     )
