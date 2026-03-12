@@ -1,0 +1,31 @@
+@import "tailwindcss";
+#root {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(192, 193, 223, 0.81);
+}
+
+.course-title-container {
+    width: 300px;
+    height: 200px;
+    background-color: rgba(230, 227, 227, 0.92);
+    border-radius: 10px;
+    border: solid 1px rgba(126, 122, 122, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.course-title-container h3 {
+    color: black;
+    font-size: 25px;
+}
