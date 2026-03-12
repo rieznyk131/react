@@ -1,0 +1,12 @@
+@import "tailwindcss";
+img {
+    width: 200px;
+}
+
+.info-block {
+    width: 60%;
+}
+
+html {
+    background-color: #f1d374;
+}
