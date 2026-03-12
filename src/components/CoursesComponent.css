@@ -14,9 +14,9 @@
     background-color: rgba(192, 193, 223, 0.81);
 }
 
-.course-title-container {
+.course-container {
     width: 300px;
-    height: 200px;
+    height: 300px;
     background-color: rgba(230, 227, 227, 0.92);
     border-radius: 10px;
     border: solid 1px rgba(126, 122, 122, 0.92);
@@ -25,7 +25,12 @@
     align-items: center;
     justify-content: center;
 }
-.course-title-container h3 {
+.course-container h3 {
     color: black;
-    font-size: 25px;
+    font-size: 20px;
 }
+.course-title-container p {
+    color: black;
+    font-size: 18px;
+}
+
