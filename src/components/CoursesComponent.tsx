@@ -18,8 +18,8 @@ const Courses: FC <MyPropsType> = ({course}) => {
                 <p className='text-xl'>Month duration: {course.monthDuration}</p>
                 <p className='text-xl mb-4'>Hour Duration: {course.hourDuration}</p>
                 <ul className='text-xl'>Modules: {
-                    course.modules.map(module => (
-                        <li className='text-lg list-disc ml-10'>{module}</li>
+                    course.modules.map((module, index:number) => (
+                        <li  key={index} className='text-lg list-disc ml-10'>{module}</li>
                     ))}
                 </ul>
             </div>
