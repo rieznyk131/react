@@ -1,0 +1,10 @@
+body {
+    padding: 30px;
+    background-color: rgba(186, 211, 204, 0.82);
+}
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    justify-items: center;
+}

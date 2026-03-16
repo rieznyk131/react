@@ -1,0 +1,12 @@
+.item-container {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 50px;
+    padding: 50px;
+    background-color: rgba(192, 193, 223, 0.81);
+    border-radius: 20px;
+}
