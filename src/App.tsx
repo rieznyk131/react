@@ -1,5 +1,5 @@
 import './App.css'
-import {UsersComponent} from "./users-component/UserComponent.tsx";
+import {UsersComponent} from "./users-component/UsersComponent.tsx";
 
 function App() {
 
