@@ -1,0 +1,13 @@
+.item-container {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-left: 50px;
+    padding: 20px;
+    gap: 30px;
+    background-color: rgba(246, 246, 251, 0.81);
+    border-radius: 20px;
+}
