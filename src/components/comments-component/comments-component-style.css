@@ -1,0 +1,11 @@
+body{
+    padding: 30px;
+    background-color: #a2d8a2;
+}
+.comments-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    justify-items: center;
+}
