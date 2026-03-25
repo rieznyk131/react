@@ -1,16 +1,20 @@
-import {useEffect, useState} from "react";
+import {type FC, useEffect, useState} from "react";
 import type {IPost} from "../../models/posts/IPost.ts";
 import {postService} from "../../services/api.services.ts";
 import {PostComponent} from "../post/PostComponent.tsx";
 
-export const PostsComponent = () => {
-    const [posts, setPosts] = useState<IPost[]>([]);
+type PostsPropsType = {
+    userId: string
+}
 
+export const PostsComponent: FC<PostsPropsType> = ({userId}) => {
+    const [posts, setPosts] = useState<IPost[]>([]);
     useEffect(() => {
-        postService.getPosts().then((allPosts) => {
-            setPosts(allPosts)
-        });
-    },[])
+        if (userId) {
+            postService.getAllPostsOfUserById(+userId)
+                .then(value => setPosts(value));
+        }
+    }, [userId]);
     return (
         <div className='mt-6 grid grid-cols-3 gap-4 w-full justify-items-center'>
             {

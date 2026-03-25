@@ -21,5 +21,9 @@ export const postService = {
     getPost: async (id: number): Promise<IPost> => {
         return await  fetch(urls.posts.byId(id))
             .then(value => value.json())
+    },
+    getAllPostsOfUserById: async (id:number): Promise<IPost[]> => {
+                return await fetch (urls.posts.userPostById(id))
+                    .then(value => value.json())
     }
 }
