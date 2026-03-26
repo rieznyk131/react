@@ -13,12 +13,16 @@ export const routes = createBrowserRouter([
     {
         path: '', element: <Layout/>, children: [
             {index: true, element: <HomePage/>},
-            {path: 'users', element: <UsersPage/>},
-            {path: 'users/jsonplaceholder', element: <UsersJsonplaceholderPage/>},
-            {path: 'users/dummyjson', element: <UsersDummyjsonPage/>},
-            {path: 'posts', element: <PostsPage/>},
-            {path: 'posts/jsonplaceholder', element: <PostsJsonplaceholderPage/>},
-            {path: 'posts/dummyjson', element: <PostsDummyjsonPage/>},
+            {path: 'users', element: <UsersPage/>, children: [
+                    {path: 'jsonplaceholder', element: <UsersJsonplaceholderPage/>},
+                    {path: 'dummyjson', element: <UsersDummyjsonPage/>},
+                ]},
+
+            {path: 'posts', element: <PostsPage/>, children: [
+                    {path: 'jsonplaceholder', element: <PostsJsonplaceholderPage/>},
+                    {path: 'dummyjson', element: <PostsDummyjsonPage/>}
+                ]},
+
             {path: 'comments/jsonplaceholder', element: <CommentPage/>},
         ]
     }
