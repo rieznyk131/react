@@ -1,11 +1,11 @@
-import {Link} from "react-router-dom";
-import './users-page-style.css'
+import '../../components/button/button-component-style.css'
+import {ButtonComponent} from "../../components/button/ButtonComponent.tsx";
 
 export const UsersPage = () => {
     return (
-            <div className='w-full h-60 flex justify-center items-center gap-40 mt-10'>
-                <button><Link to={'jsonplaceholder'}>Go to JSONPlaceholder Users</Link></button>
-                <button><Link to={'dummyjson'}>Go to DummyJSON Users</Link></button>
-            </div>
-    );
+        <div className='w-full h-60 flex flex-row justify-center items-center gap-40 mt-10'>
+            <ButtonComponent text={'Go to DummyJSON Users'} endpoint={'dummyjson'}/>
+            <ButtonComponent text={'Go to JSONPlaceholder Users'} endpoint={'jsonplaceholder'}/>
+        </div>
+    )
 };

@@ -18,9 +18,9 @@ export const UserComponentDJ: FC<UserPropsType> = ({item}) => {
                 <p><span className='font-semibold'>Gender: </span>{item.gender}</p>
                 <p><span className='font-semibold'>Email: </span>{item.email}</p>
                 <p><span className='font-semibold'>Phone: </span>{item.phone}</p>
-                <p><span className='font-semibold'>Username </span>{item.username}</p>
-                <p><span className='font-semibold'>Birth Date </span>{item.birthDate}</p>
-                <p><span className='font-semibold'>University </span>{item.university}</p>
+                <p><span className='font-semibold'>Username: </span>{item.username}</p>
+                <p><span className='font-semibold'>Birth Date: </span>{item.birthDate}</p>
+                <p><span className='font-semibold'>University: </span>{item.university}</p>
             </div>
                 <div className={'user-company-info'}>
                     <h3 className='text-xl font-bold pb-1'>Company:</h3>
