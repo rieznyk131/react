@@ -1,0 +1,7 @@
+.comments-container-jp {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    justify-items: center;
+}

@@ -1,0 +1,21 @@
+.comment-container-jp{
+    height: auto;
+    width: 450px;
+    background: #4d2f48;
+    background: radial-gradient(circle, rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+    border: 1.5px solid #715161;
+    border-radius: 10px;
+    color: #e4d3dc;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+    padding: 20px;
+    transition: transform 0.5s ease;
+}
+
+.comment-container-jp:hover {
+    transform: scale(1.08);
+    background: #4d2f48;
+    background: radial-gradient(circle,rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+}

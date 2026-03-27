@@ -1,0 +1,30 @@
+.comments-container-dj {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 30px;
+    justify-items: center;
+}
+
+.comment-container-dj:hover {
+    transform: scale(1.1);
+    background: #4d2f48;
+    background: radial-gradient(circle,rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+}
+
+.likes {
+    display: flex;
+    gap: 7px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.text-container>p:nth-child(2) {
+    color: #8a7786;
+}

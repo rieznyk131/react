@@ -1,0 +1,24 @@
+.item-container-jp {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-left: 50px;
+    padding: 20px;
+    gap: 30px;
+    background: #4d2f48;
+    background: radial-gradient(circle, rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+    border: 1.5px solid #715161;
+    border-radius: 10px;
+    color: #e4d3dc;
+    transition: transform 0.5s ease;
+}
+
+
+.item-container-jp:hover {
+    transform: scale(1.1);
+    background: #4d2f48;
+    background: radial-gradient(circle, rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+}

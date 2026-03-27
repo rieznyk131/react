@@ -1,0 +1,47 @@
+.user-container-dj {
+    width: 400px;
+    height: 600px;
+    background: #4d2f48;
+    background: radial-gradient(circle, rgba(77, 47, 72, 1) 0%, rgba(50, 9, 66, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    box-shadow: 0 0 .1rem #fff,
+    0 0 .1rem #fff,
+    0 0 1rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 1rem #bc13fe,
+    inset 0 0 1.0rem #bc13fe;
+    color: #e6b3ec;
+    transition: transform 0.3s ease;
+
+}
+.user-container-dj:hover {
+    transform: scale(1.1);
+}
+
+.user-company-info {
+    margin: 10px;
+    width: 80%;
+}
+
+.user-info {
+    margin: 10px;
+    width: 80%;
+}
+
+.user-company-info li::before {
+    content: url("https://img.icons8.com/?size=10&id=j4jZyIHD6htS&format=png&color=000000");
+    margin-right: 10px;
+}
+
+.user-company-info li {
+    margin-left: 15px;
+}
+
+.avatar {
+    width: 100px;
+    margin-top: 20px;
+}
