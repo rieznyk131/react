@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import type {ICommentDJ} from "../../../models/DummyJson/ICommentDJ.ts";
-import {commentsService} from "../../../services/api.services.ts";
+import {commentsService} from '../../../services/comments.api.services.ts';
 import {CommentComponentDJ} from "../comment-component/CommentComponentDJ.tsx";
 import './comment-component-dj-style.css'
 

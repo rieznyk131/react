@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import type {IPostDJ} from "../../../models/DummyJson/IPostDJ.ts";
-import {postsService} from "../../../services/api.services.ts";
+import {postsService} from "../../../services/posts.api.services.ts";
 import {PostComponentDJ} from "../post-component/PostComponentDJ.tsx";
 import './posts-component-dj-style.css'
 

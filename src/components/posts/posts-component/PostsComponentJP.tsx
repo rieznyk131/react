@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import type {IPostJP} from "../../../models/JsonPlaceholder/IPostsJP.ts";
-import {postsService} from "../../../services/api.services.ts";
+import {postsService} from "../../../services/posts.api.services.ts";
 import {PostComponentJP} from "../post-component/PostComponentJP.tsx";
 import './posts-component-jp-style.css'
 

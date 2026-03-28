@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import type {IUserDJ} from "../../../models/DummyJson/IUserDJ.ts";
-import {usersService} from "../../../services/api.services.ts";
+import {usersService} from "../../../services/users.api.services.ts";
 import {UserComponentDJ} from "../user-component/UserComponentDJ.tsx";
 
 export const UsersComponentDJ = () => {

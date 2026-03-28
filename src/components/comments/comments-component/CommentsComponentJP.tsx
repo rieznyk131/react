@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {commentsService} from "../../../services/api.services.ts";
+import {commentsService} from "../../../services/comments.api.services.ts";
 import type {ICommentJP} from "../../../models/JsonPlaceholder/ICommentsJP.ts";
 import {CommentComponentJP} from "../comment-component/CommentComponentJP.tsx";
 import './comments-component-jp-style.css'

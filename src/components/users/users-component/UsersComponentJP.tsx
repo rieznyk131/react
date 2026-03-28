@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import type {IUsersJP} from "../../../models/JsonPlaceholder/IUsersJP.ts";
-import {usersService} from "../../../services/api.services.ts";
+import {usersService} from "../../../services/users.api.services.ts";
 import {UserComponentJP} from "../user-component/UserComponentJP.tsx";
 
 export const UsersComponentJP = () => {
