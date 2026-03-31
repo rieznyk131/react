@@ -1,0 +1,8 @@
+.posts-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    row-gap: 30px;
+    margin: 0 auto;
+}
