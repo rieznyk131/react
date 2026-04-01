@@ -10,7 +10,7 @@ export const UserComponent: FC<UserProps> = ({item}) => {
     const navigation = useNavigate()
 
     const onButtonClickNavigate = () => {
-        navigation('/users/' + item.id + '/carts')
+        navigation('/users/' + item.id + '/carts', {state: {user: item}})
     }
 
     return (
