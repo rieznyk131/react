@@ -1,0 +1,23 @@
+.product-title-img>img {
+    width: 150px;
+}
+
+.product-container {
+    width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+}
+
+.product-title-img {
+    width: 250px;
+    display: flex;
+    gap: 15px;
+}
+
+.product-discount {
+    margin-right: 5px;
+}
