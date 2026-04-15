@@ -3,10 +3,9 @@ import {PaginationComponent} from "../components/pagination-component/Pagination
 
 export const MainLayout = () => {
     return (
-        <>
+        <div className="m-12 flex flex-col gap-5">
        <Outlet/>
             <PaginationComponent/>
-            <p>Main Page</p>
-        </>
+        </div>
     );
 };
