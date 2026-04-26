@@ -2,24 +2,36 @@ import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {carValidator} from "../../validators/car.validator.ts";
 import './form-component-style.css'
+import type {ICar} from "../../models/ICar.ts";
+import {addCar} from "../../services/api.service.ts";
+import {useState} from "react";
 
-type IFormProps = {
-    brand: string,
-    price: number,
-    year: number
-}
 
 export const FormComponent = () => {
-    const {handleSubmit, register, formState: {errors, isValid}} = useForm<IFormProps>({
+    const {handleSubmit, register, formState: {errors, isValid}, reset} = useForm<ICar>({
         mode: "all",
         resolver: joiResolver(carValidator)
     });
-    const customHandler = (formFataProps: IFormProps) => {
-        console.log(formFataProps);
+    const [success, setSuccess] = useState(false);
+
+
+
+    const customHandler = (data: ICar) => {
+        addCar(data);
+        reset();
+        setSuccess(true);
     }
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit(customHandler)} className="new-car-form">
+                {
+                    success && (
+                        <div className="success-message">
+                            <img src="https://img.icons8.com/?size=70&id=91260&format=png&color=000000" alt=""/>
+                            <p>Data successfully submitted</p>
+                        </div>
+                    )
+                }
                 <label>
                     <div className='input-brand'>
                         <p>Brand <sup>&#9913;</sup></p>

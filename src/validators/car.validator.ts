@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export const carValidator = Joi.object({
-    brand: Joi.string().pattern(/^[a-zA-Zа-яА-яёЁіІїЇєЄҐґ]/).min(1).max(20).required().messages({
+    brand: Joi.string().pattern(new RegExp('^[a-zA-Zа-яА-яёЁіІїЇєЄҐґ]')).min(1).max(20).required().messages({
         'string.pattern.base': 'enter correct value',
         'string.min': 'brand name should be at least 1 characters',
         'string.max': 'brand name should be max 20 characters',
