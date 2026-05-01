@@ -8,7 +8,7 @@ export const AuthResourcesComponent = () => {
     useEffect(() => {
         loadAuthProducts() //виклик функції, котра буде виводити ресурси для авторизованих користувачів
 
-            //якщо запит успішний - виводимо в консоль масив products
+            //якщо запит успішний - виводимо на сторінку продукти
             .then(products => {
                 setProducts(products);
             })
@@ -17,7 +17,7 @@ export const AuthResourcesComponent = () => {
             .catch(reason => {
                 console.log(reason);
 
-                //викликаємо функцію refresh для оновлення access токену, після чого знову робимо запит на вивід всіх продуктів та відображаємо їх в консолі
+                //викликаємо функцію refresh для оновлення access токену, після чого знову робимо запит на вивід всіх продуктів та відображаємо їх на сторінці
                 refresh().then(() => loadAuthProducts()).then(products =>  setProducts(products))
             })
     }, []);
