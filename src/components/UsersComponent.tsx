@@ -1,20 +1,33 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {UserComponent} from "./UserComponent.tsx";
 
 export const UsersComponent = () => {
     console.log('users');
-    const [users, setUsers] = useState([]) //визначаємо стейт компонента
+    const [users, setUsers] = useState([]) //визначаємо стейт компонента, ініціалізуємо його порожнім масивом.
+
+    //оголошуємо константу для фунціїї дочірнього компонента, використовуємо useCallback хук, в якому прописуємо саму функцію та dependencies, за змінами яких буде слідкувати useCallback.
+    //якщо dependencies не змінюють своє значення, то об'єкт функції не перестворюється в пам'яті при ререндері батьківського компонента.
+    const foo = useCallback(() => {
+        console.log('test');
+    }, [])
+
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(res => res.json())
-            .then(users => setUsers(users));
-    },[])//викликаємо fetch для рендеру елементів з API
+            .then(users => {
+                setUsers(users)
+            });
 
-    //викликаємо дочірній компонент
+        return () => {
+            console.log('unsubscribe');
+        }
+    },[])//робимо запит до API для першого монтування компонента для отримання даних.
+
+    //рендеримо дочірній компонент
     return (
         <div>
             <p>Users Component</p>
-            <UserComponent/>
+            <UserComponent foo={foo}/>
         </div>
     );
 };
