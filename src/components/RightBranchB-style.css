@@ -1,0 +1,19 @@
+
+.dark{
+    background-color: rgb(0 0 0 / 0.7);
+    height: 100vh;
+}
+.light{
+    background-color: rgb(255 255 255);
+    height: 100vh;
+}
+
+.light>p {
+    color: brown;
+    text-align: center;
+}
+
+.dark>p {
+    color: #e6e3e3;
+    text-align: center;
+}
