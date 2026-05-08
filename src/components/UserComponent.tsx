@@ -1,17 +1,16 @@
 import {type FC, memo} from "react";
+import type {IUser} from "../models/IUser.ts";
 
-//мемомізуємо компонент, щоб він повторно не рендерився при ререндері батьківського компонента, якщо в дочірньому не змінюються пропси
-// Визначаємо функціональний компонент (FC), описуючи типи пропсів:
-// foo — функція без аргументів, arr — масив чисел.
+type UserProps = {
+    user: IUser
+}
 
-export const UserComponent: FC<{foo: ()=> void, arr: number[]}> = memo(({arr}) => {
-    console.log('user');
-    console.log(arr);
+export const UserComponent: FC <UserProps>= memo(({user}) => {
 
 
     return (
         <div>
-            User Component
+            {user.name}
         </div>
     );
 });
