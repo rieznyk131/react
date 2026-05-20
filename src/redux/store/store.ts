@@ -1,6 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {usersSlice} from "./userSlice.ts";
-import {useSelector} from "react-redux";
+import {usersSlice} from "../slices/usersSlice/userSlice.ts";
 
 export const store = configureStore({
     reducer: {
@@ -9,4 +8,3 @@ export const store = configureStore({
     }
 });
 
-export const useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>()

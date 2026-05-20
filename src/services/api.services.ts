@@ -1,17 +1,7 @@
-import type {IUser} from "../models/users/IUser.ts";
-import {urls} from "../constans/urls.ts";
-import type {IPost} from "../models/posts/IPost.ts";
 
-export const userService = {
-    getUsers: async (): Promise<IUser[]> => {
-        return await fetch(urls.users.allUsers)
-            .then(value => value.json())
-    },
-    getUser: async (id: number) => {
-        return await fetch(urls.users.byId(id))
-            .then(value => value.json())
-    }
-}
+import type {IPost} from "../models/posts/IPost.ts";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+import {urls} from "../constans/urls.ts";
 
 export const postService = {
     getPosts: async (): Promise<IPost[]> => {
@@ -23,3 +13,20 @@ export const postService = {
             .then(value => value.json())
     }
 }
+
+
+
+export const loadUsers = createAsyncThunk(
+    "userSlice/loadUsers",
+    async (_, thunkAPI) => {
+        try {
+            const users = await fetch(urls.users.allUsers)
+                .then(value => value.json())
+
+            return thunkAPI.fulfillWithValue(users)
+        } catch (error) {
+            console.log(error)
+            return thunkAPI.fulfillWithValue('Something went wrong on server.')
+        }
+    }
+)
