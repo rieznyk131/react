@@ -5,7 +5,7 @@ import {useAppDispatch} from "../redux/hooks/useAppDispatch.ts";
 
 
 export const UsersPage = () => {
-    const users = useAppSelector(state => state.users.users)
+    const {users,loadState } = useAppSelector(state => state.users)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -16,7 +16,9 @@ export const UsersPage = () => {
     return (
         <div>
             {/*<UsersComponent/>*/}
-
+            {
+                !loadState && <div className='text-2xl'>Loading...</div>
+            }
             {
                 users.map(user => <div key={user.id}>{user.name}</div>)
             }
