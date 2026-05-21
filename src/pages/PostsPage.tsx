@@ -1,23 +1,9 @@
-import {useAppSelector} from "../redux/hooks/useAppSelector.ts";
-import {useAppDispatch} from "../redux/hooks/useAppDispatch.ts";
-import {useEffect} from "react";
-import {postAction} from "../redux/slices/postsSlice/postSlice.ts";
+import {PostsComponent} from "../components/posts-page-components/posts/PostsComponent.tsx";
 
 export const PostsPage = () => {
-    const {posts, loadState} = useAppSelector(state => state.posts)
-    const dispatch = useAppDispatch();
-    useEffect(() => {
-        dispatch(postAction.loadPosts())
-    }, [dispatch]);
     return (
         <div>
-            {
-                !loadState && <div className='text-2xl'>Loading...</div>
-            }
-            {
-                posts.map((post) => <div key={post.id}>{post.id} - {post.title}</div>)
-            }
-            {/*<PostsComponent/>*/}
+            <PostsComponent/>
         </div>
     );
 };

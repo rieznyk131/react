@@ -5,12 +5,22 @@ export const loadPosts = createAsyncThunk(
     'postsSlice/loadPosts',
     async (_, thunkAPI) => {
         try {
-            const posts = await fetch(urls.posts)
-                .then(value => value.json())
+            const response = await fetch(urls.posts)
+
+
+            if(!response.ok) {
+                throw new Error(`${response.status} Failed to load posts`);
+            }
+
+            const posts = await response.json();
+
             return thunkAPI.fulfillWithValue(posts);
+
         } catch (error) {
-            console.log(error)
-            return thunkAPI.fulfillWithValue('Something went wrong on server.')
+            if (error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message);
+            }
+            return thunkAPI.rejectWithValue('Server Error')
         }
     }
 )
@@ -19,13 +29,20 @@ export const loadPost = createAsyncThunk (
     'postsSlice/loadPost',
     async (id: string, thunkAPI) => {
         try {
-            const post = await fetch( 'https://jsonplaceholder.typicode.com/posts/'+id)
-                .then(value => value.json())
+            const response = await fetch( 'https://jsonplaceholder.typicode.com/posts/'+id)
 
-            return thunkAPI.fulfillWithValue(post)
+            if (!response.ok) {
+                throw new Error(`${response.status}. post ${id}`);
+            }
+
+            const post = await response.json();
+            return thunkAPI.fulfillWithValue(post);
+
         } catch (error) {
-            console.log(error)
-            return thunkAPI.fulfillWithValue('Something went wrong on server.')
+            if (error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message);
+            }
+            return thunkAPI.rejectWithValue('Server Error')
         }
     }
 )

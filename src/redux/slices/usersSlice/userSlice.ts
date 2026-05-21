@@ -1,18 +1,20 @@
 import type {IUser} from "../../../models/users/IUser.ts";
-import {createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, isRejected, type PayloadAction} from "@reduxjs/toolkit";
 import {loadUser, loadUsers} from "../../../services/api.userServices.ts";
 
 type UserSliceType = {
     users: IUser[],
     user: IUser | null,
-    loadState: boolean
+    loadState: boolean,
+    error: string | null
+
 }
 
 const initialState: UserSliceType = {
     users: [],
     user: null,
-    loadState: false
-
+    loadState: false,
+    error: null
 }
 
 export const usersSlice = createSlice({
@@ -25,22 +27,29 @@ export const usersSlice = createSlice({
     },
     extraReducers: builder =>
         builder
-            .addCase(loadUsers.fulfilled, (state, action: PayloadAction<IUser[]>)=>{
-            state.users = action.payload
-        })
-            .addCase(loadUsers.rejected, (state, action) => {
-                console.log(state);
-                console.log(action);
+            .addCase(loadUsers.pending, (state) => {
+                state.loadState = true;
+                state.error = null
+            })
+            .addCase(loadUsers.fulfilled, (state, action:PayloadAction<IUser[]>) => {
+                state.users =  action.payload;
+                state.loadState = false;
+                state.error = null
+            })
+            .addCase(loadUser.pending, (state) => {
+                state.loadState = true;
+                state.error = null
             })
             .addCase(loadUser.fulfilled, (state, action: PayloadAction<IUser>) => {
-                state.user = action.payload
+                state.user = action.payload;
+                state.loadState = false;
+                state.error = null
             })
-            .addMatcher(isFulfilled(loadUser, loadUsers), (state) => {
-                state.loadState = true
+            .addMatcher(isRejected(loadUsers, loadUser), (state, action) => {
+                state.loadState = false;
+                state.error = action.payload as string;
             })
-            .addMatcher(isRejected (loadUser, loadUsers), (state) => {
-                state.loadState = true
-            })
+
 })
 
 export const userActions = {
