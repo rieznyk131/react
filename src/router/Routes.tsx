@@ -4,13 +4,15 @@ import {HomePage} from "../pages/HomePage.tsx";
 import {PostsPage} from "../pages/PostsPage.tsx";
 import {UsersPage} from "../pages/UsersPage.tsx";
 import {UserPage} from "../pages/UserPage.tsx";
+import {PostPage} from "../pages/PostPage.tsx";
 
 export const routes = createBrowserRouter([
     {path: '', element: <Layout/>, children: [
             {index: true, element: <HomePage/>},
             {path:'users', element:<UsersPage/>},
             {path: 'users/:id', element: <UserPage/>},
-            {path:'posts', element:<PostsPage/>}
+            {path:'posts', element:<PostsPage/>},
+            {path: 'posts/:id', element: <PostPage/>}
         ]
     }
 
