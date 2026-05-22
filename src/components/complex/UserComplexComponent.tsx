@@ -1,7 +1,7 @@
 import {UserComponent} from "../users-page-components/user/UserComponent.tsx";
 import {useAppSelector} from "../../redux/hooks/useAppSelector.ts";
 import {PostComplexComponent} from "./PostComplexComponent.tsx";
-import type {FC} from "react";
+import {type FC} from "react";
 import type {IUser} from "../../models/users/IUser.ts";
 
 type UserComplexProps = {
