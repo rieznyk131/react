@@ -1,6 +1,6 @@
 import type {IUser} from "../../../models/users/IUser.ts";
-import {createSlice, isRejected, type PayloadAction} from "@reduxjs/toolkit";
-import {loadUser, loadUsers} from "../../../services/api.userServices.ts";
+import {createAsyncThunk, createSlice, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import {getAll, getById} from "../../../services/api.service.ts";
 
 type UserSliceType = {
     users: IUser[],
@@ -16,6 +16,42 @@ const initialState: UserSliceType = {
     loadState: false,
     error: null
 }
+
+const loadUsers = createAsyncThunk(
+    'loadUsers',
+    async (_, thunkAPI) => {
+        try {
+            const users = await getAll<IUser[]>('/users');
+
+            return thunkAPI.fulfillWithValue(users)
+        } catch (error) {
+            if (error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message + ' users')
+            }
+            return thunkAPI.rejectWithValue('Server Error. Unable to load users')
+        }
+
+
+    }
+)
+
+const loadUser = createAsyncThunk(
+    'loadUser',
+    async(id:string, thunkAPI) => {
+        try {
+            const user = await getById<IUser>('/users', id);
+            return thunkAPI.fulfillWithValue(user)
+        } catch (error) {
+            if (error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message +' user')
+            }
+            return  thunkAPI.rejectWithValue('Server Error. Unable to load user')
+        }
+    }
+
+)
+
+
 
 export const usersSlice = createSlice({
     name: 'userSlice',
@@ -47,7 +83,12 @@ export const usersSlice = createSlice({
             })
             .addMatcher(isRejected(loadUsers, loadUser), (state, action) => {
                 state.loadState = false;
-                state.error = action.payload as string;
+                if (typeof action.payload === 'string') {
+                    state.error = action.payload;
+                } else {
+                    state.error = action.error.message || 'Server Error';
+                }
+
             })
 
 })

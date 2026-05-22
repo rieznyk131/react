@@ -1,6 +1,7 @@
 import type {IComment} from "../../../models/commnets/IComment.ts";
-import {createSlice, isRejected, type PayloadAction} from "@reduxjs/toolkit";
-import {loadComment, loadComments} from "../../../services/api.commentsService.ts";
+import {createAsyncThunk, createSlice, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import {getAll, getById} from "../../../services/api.service.ts";
+
 
 type CommentsSliceType = {
     comments: IComment[];
@@ -15,6 +16,36 @@ const initialState: CommentsSliceType = {
     loadState: false,
     error: null
 };
+
+const loadComments = createAsyncThunk(
+    'loadComments',
+    async (_, thunkAPI) => {
+        try {
+            const comments = await getAll<IComment[]>('/comments');
+            return thunkAPI.fulfillWithValue(comments);
+        } catch (error) {
+            if (error instanceof Error) {
+                return thunkAPI.rejectWithValue(error.message + " comments");
+            }
+            return thunkAPI.rejectWithValue('Server Error. Unable to load comments');
+        }
+}
+);
+
+const loadComment = createAsyncThunk(
+    'loadComment',
+    async (id: string, thunkAPI) => {
+        try {
+            const comment = await getById<IComment>('/comments', id);
+            return thunkAPI.fulfillWithValue(comment)
+        } catch (error) {
+            if(error instanceof Error) {
+                return  thunkAPI.rejectWithValue(error.message + ' comment')
+            }
+            return thunkAPI.rejectWithValue('Server Error. Unable to load comments');
+        }
+    }
+)
 
 export const commentsSlice = createSlice({
     name: 'commentsSlice',
@@ -45,7 +76,11 @@ export const commentsSlice = createSlice({
         })
         .addMatcher(isRejected(loadComment, loadComments), (state, action) => {
             state.loadState = false;
-            state.error = action.payload as string;
+            if (typeof action.payload === 'string') {
+                state.error = action.payload;
+            } else {
+                state.error = action.error.message || 'Server Error';
+            }
         })
 })
 

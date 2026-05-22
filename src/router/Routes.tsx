@@ -7,6 +7,7 @@ import {UserPage} from "../pages/UserPage.tsx";
 import {PostPage} from "../pages/PostPage.tsx";
 import {CommentsPage} from "../pages/CommentsPage.tsx";
 import {CommentPage} from "../pages/CommentPage.tsx";
+import {ComplexPage} from "../pages/ComplexPage.tsx";
 
 export const routes = createBrowserRouter([
     {path: '', element: <Layout/>, children: [
@@ -16,7 +17,8 @@ export const routes = createBrowserRouter([
             {path:'posts', element:<PostsPage/>},
             {path: 'posts/:id', element: <PostPage/>},
             { path: 'comments', element: <CommentsPage/>},
-            { path: 'comments/:id', element: <CommentPage/>}
+            { path: 'comments/:id', element: <CommentPage/>},
+            {path: 'complex', element: <ComplexPage/>}
         ]
     }
 

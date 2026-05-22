@@ -10,7 +10,7 @@ export const UserComponent: FC<UserPropsType> = ({user}) => {
     return (
         <div>
 
-                <div key={user.id}><Link to={`/users/${user.id}`}>{user.name}</Link></div>
+                <div className='ml-5' key={user.id}><Link to={`/users/${user.id}`}>{user.name}</Link></div>
 
         </div>
     );
