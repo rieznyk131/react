@@ -15,7 +15,7 @@ export const PostsComponent = () => {
     const pageFromUrl = searchParams.get("page");
     const currentPage = pageFromUrl ? parseInt(pageFromUrl, 10) : 1;
 
-    const postsPerPage = 9;
+    const postsPerPage = 12;
 
     useEffect(() => {
         dispatch(postAction.loadPosts());
@@ -31,17 +31,18 @@ export const PostsComponent = () => {
     const totalPages = Math.ceil(posts.length / postsPerPage);
 
     return (
-        <div className="p-5">
+        <main className="p-5">
             {loadState && <div className='text-2xl'>Loading...</div>}
             {error && <div className='text-red-500 text-xl'>Error: {error}</div>}
 
-            <div className='grid grid-cols-3 gap-4'>
-                {
+            <section className='max-w-7xl mx-auto px-4'>
+                <h1 className='text-4xl font-bold text-gray-700 mb-6 text-center'>Posts</h1>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6' >{
                     currentPosts.map((post) => <PostComponent post={post} key={post.id}/>)
-                }
-            </div>
+                }</div>
+            </section>
 
-            <div className="flex justify-center mt-8">
+            <section className="flex justify-center mt-8">
                 <Pagination
                     count={totalPages || 1}
                     page={currentPage}
@@ -56,7 +57,7 @@ export const PostsComponent = () => {
                     variant="outlined"
                     shape="rounded"
                 />
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };

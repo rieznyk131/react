@@ -14,7 +14,9 @@ export const UsersComponent=  () => {
     },[dispatch]);
 
     return (
-        <div className='max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+        <main>
+        <section className='max-w-6xl mx-auto px-4 py-8'>
+            <h1 className='text-4xl font-bold text-gray-700 mb-6 text-center'>Users</h1>
             {
                 loadState && <div className='text-2xl'>Loading...</div>
             }
@@ -23,9 +25,12 @@ export const UsersComponent=  () => {
                     Error: {error}
                 </div>
             )}
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             {
                 users.map(user => <UserComponent user={user} key={user.id}/>)
             }
-        </div>
+            </div>
+        </section>
+        </main>
     );
 }
