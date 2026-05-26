@@ -12,13 +12,13 @@ export const PostComplexComponent: FC<PostProps> = ({post}) => {
     const postComments = comments.filter(comment => post.id === comment.postId)
 
     return (
-        <div>
+        <div className=''>
             <div className='ml-5 mt-5'>
-                <p className='text-xl font-bold'>Post ID: {post.id}</p>
-                <p>Title: {post.title}</p>
-                <p>Post: {post.body}</p>
+                <span className='text-xs font-semibold text-blue-600 uppercase tracking-wider'>Post #{post.id}</span>
+                <p className='text-lg font-bold text-gray-900 capitalize'>{post.title}</p>
+                <p className='text-gray-700 text-lg leading-relaxed'>{post.body.charAt(0).toUpperCase() + post.body.slice(1)}</p>
             </div>
-            <div>
+            <div  className='ml-16'>
                 <h3 className='text-xl ml-5 mt-5'>Comments</h3>
                 <div>
                     {

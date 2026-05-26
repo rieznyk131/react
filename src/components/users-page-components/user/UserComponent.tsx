@@ -18,8 +18,8 @@ export const UserComponent: FC<UserPropsType> = ({user}) => {
             <div className='flex gap-3'>
                 <div className={`h-12 w-12 flex items-center justify-center rounded-full font-bold ${bg} ${text} `}>{user.name[0].toUpperCase()}</div>
                 <div>
-                    <p className='font-bold text-gray-800'>{user.name}</p>
-                    <p className='text-sm text-gray-500 font-medium'>{user.username}</p>
+                    <h2 className='font-bold text-gray-800'>{user.name}</h2>
+                    <span className='text-sm text-gray-500 font-medium'>{user.username}</span>
                 </div>
             </div>
             <div>

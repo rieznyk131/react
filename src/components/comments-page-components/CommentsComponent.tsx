@@ -33,7 +33,7 @@ export const CommentsComponent = () => {
     const totalPages:number = Math.ceil(comments.length/commentsPerPage)
 
     return (
-        <div>
+        <main className='p-5 flex flex-col gap-5 justify-center' >
             {
                 loadState && <div className='text-2xl'>Loading...</div>
             }
@@ -42,22 +42,27 @@ export const CommentsComponent = () => {
                     Error: {error}
                 </div>
             )}
-            {
+            <h1 className='text-4xl font-bold text-gray-700 mb-6 text-center'>Comments</h1>
+            <section className='flex flex-col gap-5 max-w-7xl mx-auto px-4'>
+                {
                 currentComments.map(comment => <CommentComponent comment={comment} key={comment.id}/>)
             }
-            <Pagination count={totalPages}
-            page={currentPage}
-            onChange={(_, value) => {
-                if (value === 1) {
-                    setSearchParams({})
-                } else {
-                    setSearchParams({page: value.toString()})
-                }
-            }}
-                        color="primary"
-                        variant="outlined"
-                        shape="rounded"
+            </section>
+            <section className="flex justify-center mt-8">
+                <Pagination count={totalPages}
+                           page={currentPage}
+                           onChange={(_, value) => {
+                               if (value === 1) {
+                                   setSearchParams({})
+                               } else {
+                                   setSearchParams({page: value.toString()})
+                               }
+                           }}
+                           color="primary"
+                           variant="outlined"
+                           shape="rounded"
             />
-        </div>
+            </section>
+        </main>
     );
 };

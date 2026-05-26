@@ -48,7 +48,9 @@ export const SingleUserComponent = () => {
                         className='md:col-span-1 h-fit bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-6'>
                         <div className='flex flex-col items-center text-center'>
                             <div className={`h-24 w-24 flex items-center justify-center rounded-full text-3xl font-bold ${bg} ${text}`}>{user.name[0].toUpperCase()}</div>
-                            <h2 className='text-2xl font-bold text-gray-900'>{user.name}</h2></div>
+                            <h1 className='text-2xl font-bold text-gray-900'>{user.name}</h1>
+                            <span className='text-base text-gray-500 font-medium'>{user.username}</span>
+                        </div>
                         <div className='flex flex-col gap-1'>
                             <h3 className='text-lg font-bold text-gray-700'>User Info:</h3>
                             <div className='flex flex-col'>
@@ -101,7 +103,7 @@ export const SingleUserComponent = () => {
                         </div>
                     </div>
                     <div className='md:col-span-2 flex flex-col gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm'>
-                        <h3 className='text-xl font-bold text-gray-900 mb-4'>Latest {user.name}'s Posts</h3>
+                        <h2 className='text-xl font-bold text-gray-900 mb-4'>Latest {user.name}'s Posts</h2>
                         {
                         user && userPosts.map(post => <div key={post.id}>
                             <div className='bg-white p-5 rounded-xl border border-gray-100 hover:border-blue-200 transition-colors flex flex-col gap-3'>
