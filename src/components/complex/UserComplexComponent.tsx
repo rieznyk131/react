@@ -22,7 +22,7 @@ export const UserComplexComponent: FC<UserComplexProps> = ({user}) => {
         <div className='w-full  bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-6'>
                 <div className='w-264 bg-white h-auto p-6 rounded-xl border border-gray-100 hover:shadow-md transition-shadow duration-200 cursor-pointer flex justify-center gap-50'>
                     <div className='flex items-center gap-3'>
-                        <div className={`h-24 w-24 flex items-center justify-center rounded-full font-bold ${bg} ${text} `}>{user.name[0].toUpperCase()}</div>
+                        <div className={`h-24 w-24 flex items-center justify-center rounded-full text-3xl font-bold ${bg} ${text} `}>{user.name[0].toUpperCase()}</div>
                         <div>
                             <h2 className='text-2xl font-bold text-gray-900'>{user.name}</h2>
                             <span className='text-base text-gray-500 font-medium'>{user.username}</span>
